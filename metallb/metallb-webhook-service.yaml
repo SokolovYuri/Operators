@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-05-28T19:39:13Z"
+  labels:
+    operators.coreos.com/metallb-operator.test-space: ""
+  name: webhook-service
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: metallb-operator.4.10.0-202305032028
+    uid: a95614d3-3440-40d0-ae3a-f51a2c93ca01
+  resourceVersion: "38735759"
+  uid: e4bc45b2-04a9-446b-b984-f042cf21c39f
+spec:
+  clusterIP: 172.30.34.46
+  clusterIPs:
+  - 172.30.34.46
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 9443
+  selector:
+    control-plane: controller-manager
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

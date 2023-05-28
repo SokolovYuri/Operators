@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-05-28T20:51:05Z"
+  labels:
+    app.kubernetes.io/name: opentelemetry-operator
+    operators.coreos.com/opentelemetry-operator.test-space: ""
+  name: opentelemetry-operator-webhook-service
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: opentelemetry-operator.v0.77.0
+    uid: b8cedac8-22b5-475f-9547-4057c9c215f4
+  resourceVersion: "38787680"
+  uid: 9f47117b-03a4-45cc-aed2-30c73c5ec71d
+spec:
+  clusterIP: 172.30.144.17
+  clusterIPs:
+  - 172.30.144.17
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 9443
+  selector:
+    app.kubernetes.io/name: opentelemetry-operator
+    control-plane: controller-manager
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
