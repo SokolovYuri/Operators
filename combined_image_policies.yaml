@@ -1,0 +1,1001 @@
+# File: image_policies/image-policy-0.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:42Z"
+  generation: 1
+  name: image-policy-00
+  resourceVersion: "1584"
+  uid: bc787c28-f0fc-483d-96e7-23eb5cf7f560
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-upgrade-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-upgrade-operator
+    source: quay.io/app-sre/managed-upgrade-operator
+
+# File: image_policies/image-policy-10.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:46Z"
+  generation: 1
+  name: image-policy-10
+  resourceVersion: "1708"
+  uid: e276aa4c-4a8a-434a-ba35-66e28d07a8b5
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/deadmanssnitch-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/deadmanssnitch-operator
+    source: quay.io/app-sre/deadmanssnitch-operator
+
+# File: image_policies/image-policy-11.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:46Z"
+  generation: 1
+  name: image-policy-11
+  resourceVersion: "1739"
+  uid: c97cdc23-e33c-4d2b-8eb3-5d7006576d1b
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/deadmanssnitch-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/deadmanssnitch-operator-registry
+    source: quay.io/app-sre/deadmanssnitch-operator-registry
+
+# File: image_policies/image-policy-12.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:46Z"
+  generation: 1
+  name: image-policy-12
+  resourceVersion: "1750"
+  uid: 1dc15a1d-2c70-4510-8676-bf886f01f3bb
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/configure-alertmanager-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/configure-alertmanager-operator
+    source: quay.io/app-sre/configure-alertmanager-operator
+
+# File: image_policies/image-policy-13.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:47Z"
+  generation: 1
+  name: image-policy-13
+  resourceVersion: "1764"
+  uid: f7c4bbed-d112-430c-bb80-e331b3711a0b
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/configure-alertmanager-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/configure-alertmanager-operator-registry
+    source: quay.io/app-sre/configure-alertmanager-operator-registry
+
+# File: image_policies/image-policy-14.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:47Z"
+  generation: 1
+  name: image-policy-14
+  resourceVersion: "1773"
+  uid: 5462ba3e-6fc8-4e58-9a68-409b47137bce
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/dedicated-admin-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/dedicated-admin-operator
+    source: quay.io/app-sre/dedicated-admin-operator
+
+# File: image_policies/image-policy-15.yaml
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:48Z"
+  generation: 1
+  name: image-policy-15
+  resourceVersion: "1789"
+  uid: 760fc225-cfcd-4d7b-99fd-a0b4e23b1f57
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/dedicated-admin-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/dedicated-admin-operator-registry
+    source: quay.io/app-sre/dedicated-admin-operator-registry
+
+# File: image_policies/image-policy-16.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:48Z"
+  generation: 1
+  name: image-policy-16
+  resourceVersion: "1795"
+  uid: c78f7e14-da21-4bb7-98c0-c7fcd8e17689
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/splunk-forwarder-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/splunk-forwarder-operator
+    source: quay.io/app-sre/splunk-forwarder-operator
+
+# File: image_policies/image-policy-17.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:48Z"
+  generation: 1
+  name: image-policy-17
+  resourceVersion: "1799"
+  uid: 9c960297-c9ef-4401-97b5-9d537946e440
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/splunk-forwarder-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/splunk-forwarder-operator-registry
+    source: quay.io/app-sre/splunk-forwarder-operator-registry
+
+# File: image_policies/image-policy-18.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:49Z"
+  generation: 1
+  name: image-policy-18
+  resourceVersion: "1800"
+  uid: 68fbcfe7-f7ed-428d-89c3-452b785081b5
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/splunk-forwarder
+    - pull.q1w2.quay.rhcloud.com/app-sre/splunk-forwarder
+    source: quay.io/app-sre/splunk-forwarder
+
+# File: image_policies/image-policy-19.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:49Z"
+  generation: 1
+  name: image-policy-19
+  resourceVersion: "1801"
+  uid: ea83ad0c-f995-4222-8bb3-ce1abfc4fc9b
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/splunk-heavyforwarder
+    - pull.q1w2.quay.rhcloud.com/app-sre/splunk-heavyforwarder
+    source: quay.io/app-sre/splunk-heavyforwarder
+
+# File: image_policies/image-policy-1.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:42Z"
+  generation: 1
+  name: image-policy-01
+  resourceVersion: "1590"
+  uid: 30945b43-fe08-4a58-bd67-073d2da3cbee
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-upgrade-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-upgrade-operator-registry
+    source: quay.io/app-sre/managed-upgrade-operator-registry
+
+# File: image_policies/image-policy-20.yaml
+---apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:50Z"
+  generation: 1
+  name: image-policy-20
+  resourceVersion: "1806"
+  uid: 9fb9e376-2660-481d-b356-9aa44ff22661
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/rbac-permissions-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/rbac-permissions-operator
+    source: quay.io/app-sre/rbac-permissions-operator
+
+# File: image_policies/image-policy-21.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:50Z"
+  generation: 1
+  name: image-policy-21
+  resourceVersion: "1829"
+  uid: bd1e20b2-6097-48d7-bae6-af38273f9e53
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/rbac-permissions-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/rbac-permissions-operator-registry
+    source: quay.io/app-sre/rbac-permissions-operator-registry
+
+# File: image_policies/image-policy-22.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:50Z"
+  generation: 1
+  name: image-policy-22
+  resourceVersion: "1834"
+  uid: f89ff5aa-1fc8-44c5-b9d4-857aa925d01d
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/cloud-ingress-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/cloud-ingress-operator
+    source: quay.io/app-sre/cloud-ingress-operator
+
+# File: image_policies/image-policy-23.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:51Z"
+  generation: 1
+  name: image-policy-23
+  resourceVersion: "1856"
+  uid: 184f166a-65c1-457d-abf8-46d92b6313e5
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/cloud-ingress-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/cloud-ingress-operator-registry
+    source: quay.io/app-sre/cloud-ingress-operator-registry
+
+# File: image_policies/image-policy-24.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:51Z"
+  generation: 1
+  name: image-policy-24
+  resourceVersion: "1878"
+  uid: dd41b0f1-04b5-451c-8835-2b1377823ce0
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-velero-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-velero-operator
+    source: quay.io/app-sre/managed-velero-operator
+
+# File: image_policies/image-policy-25.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:52Z"
+  generation: 1
+  name: image-policy-25
+  resourceVersion: "1885"
+  uid: 56bfeb9e-9b48-461d-a28e-2f9e19be2c37
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-velero-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-velero-operator-registry
+    source: quay.io/app-sre/managed-velero-operator-registry
+
+# File: image_policies/image-policy-26.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:52Z"
+  generation: 1
+  name: image-policy-26
+  resourceVersion: "1908"
+  uid: 8aeb6f12-d46d-49fa-b1ef-ecb55efcad01
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-cluster-validating-webhooks
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-cluster-validating-webhooks
+    source: quay.io/app-sre/managed-cluster-validating-webhooks
+
+# File: image_policies/image-policy-27.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:52Z"
+  generation: 1
+  name: image-policy-27
+  resourceVersion: "1927"
+  uid: 05821330-3d46-4578-b582-cb73392b01e2
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/gcp-project-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/gcp-project-operator
+    source: quay.io/app-sre/gcp-project-operator
+
+# File: image_policies/image-policy-28.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:53Z"
+  generation: 1
+  name: image-policy-28
+  resourceVersion: "1931"
+  uid: 39c7e88a-76a9-4117-921d-9fe9883f5eac
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/gcp-project-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/gcp-project-operator-registry
+    source: quay.io/app-sre/gcp-project-operator-registry
+
+# File: image_policies/image-policy-29.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:53Z"
+  generation: 1
+  name: image-policy-29
+  resourceVersion: "1956"
+  uid: ba254942-0a43-44b5-9028-5d588b98b9d2
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/aws-efs-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/aws-efs-operator
+    source: quay.io/app-sre/aws-efs-operator
+
+# File: image_policies/image-policy-2.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:42Z"
+  generation: 1
+  name: image-policy-02
+  resourceVersion: "1617"
+  uid: e690a5e1-a1e9-4d44-b05b-dae6c2ab544c
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/aws-account-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/aws-account-operator
+    source: quay.io/app-sre/aws-account-operator
+
+# File: image_policies/image-policy-30.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:54Z"
+  generation: 1
+  name: image-policy-30
+  resourceVersion: "1958"
+  uid: 433d737e-b902-4de2-a3dd-2d3da77bc2c3
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/aws-account-shredder
+    - pull.q1w2.quay.rhcloud.com/app-sre/aws-account-shredder
+    source: quay.io/app-sre/aws-account-shredder
+
+# File: image_policies/image-policy-31.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:54Z"
+  generation: 1
+  name: image-policy-31
+  resourceVersion: "1959"
+  uid: 6236b997-65fe-40b4-bd21-5cf6f3b998ca
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/yq
+    - pull.q1w2.quay.rhcloud.com/app-sre/yq
+    source: quay.io/app-sre/yq
+
+# File: image_policies/image-policy-32.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:54Z"
+  generation: 1
+  name: image-policy-32
+  resourceVersion: "1960"
+  uid: aedb5f56-f677-40c0-8362-8636a300b075
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/python
+    - pull.q1w2.quay.rhcloud.com/app-sre/python
+    source: quay.io/app-sre/python
+
+# File: image_policies/image-policy-33.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:55Z"
+  generation: 1
+  name: image-policy-33
+  resourceVersion: "1966"
+  uid: c2c8fc1b-18fb-49d8-8d00-ed85e6a500dd
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/must-gather-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/must-gather-operator
+    source: quay.io/app-sre/must-gather-operator
+
+# File: image_policies/image-policy-34.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:55Z"
+  generation: 1
+  name: image-policy-34
+  resourceVersion: "1980"
+  uid: 3c117308-7e5e-4726-a0b7-1274f474217d
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/must-gather-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/must-gather-operator-registry
+    source: quay.io/app-sre/must-gather-operator-registry
+
+# File: image_policies/image-policy-35.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:56Z"
+  generation: 1
+  name: image-policy-35
+  resourceVersion: "2011"
+  uid: ae307937-737f-462b-ad84-ca45ae85fe4a
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/osd-metrics-exporter
+    - pull.q1w2.quay.rhcloud.com/app-sre/osd-metrics-exporter
+    source: quay.io/app-sre/osd-metrics-exporter
+
+# File: image_policies/image-policy-36.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:56Z"
+  generation: 1
+  name: image-policy-36
+  resourceVersion: "2023"
+  uid: f5e596b2-8621-45b8-92da-468dff23a378
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/osd-metrics-exporter-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/osd-metrics-exporter-registry
+    source: quay.io/app-sre/osd-metrics-exporter-registry
+
+# File: image_policies/image-policy-37.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:56Z"
+  generation: 1
+  name: image-policy-37
+  resourceVersion: "2028"
+  uid: 4c8ab63e-f9b0-4640-9554-7fb313b16945
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/route-monitor-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/route-monitor-operator
+    source: quay.io/app-sre/route-monitor-operator
+
+# File: image_policies/image-policy-38.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:57Z"
+  generation: 1
+  name: image-policy-38
+  resourceVersion: "2073"
+  uid: 8fe6c7c5-0073-4907-a9cc-8e89b5e54fbb
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/route-monitor-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/route-monitor-operator-registry
+    source: quay.io/app-sre/route-monitor-operator-registry
+
+# File: image_policies/image-policy-39.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:57Z"
+  generation: 1
+  name: image-policy-39
+  resourceVersion: "2082"
+  uid: 3036fe92-f117-45b8-b877-8ee045e05a09
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-node-metadata-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-node-metadata-operator
+    source: quay.io/app-sre/managed-node-metadata-operator
+
+# File: image_policies/image-policy-3.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:43Z"
+  generation: 1
+  name: image-policy-03
+  resourceVersion: "1618"
+  uid: 1aa1d9b7-251f-428f-9333-a6ceed859ab7
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/aws-account-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/aws-account-operator-registry
+    source: quay.io/app-sre/aws-account-operator-registry
+
+# File: image_policies/image-policy-40.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:58Z"
+  generation: 1
+  name: image-policy-40
+  resourceVersion: "2126"
+  uid: 74f5e49a-5698-4393-9039-f6d65b8c0d58
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/managed-node-metadata-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/managed-node-metadata-operator-registry
+    source: quay.io/app-sre/managed-node-metadata-operator-registry
+
+# File: image_policies/image-policy-41.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:58Z"
+  generation: 1
+  name: image-policy-41
+  resourceVersion: "2141"
+  uid: 65afbf18-0efd-4f44-a572-144d98010f19
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/openshift-release-dev/ocp-release
+    - pull.q1w2.quay.rhcloud.com/openshift-release-dev/ocp-release
+    source: quay.io/openshift-release-dev/ocp-release
+
+# File: image_policies/image-policy-42.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:58Z"
+  generation: 1
+  name: image-policy-42
+  resourceVersion: "2158"
+  uid: f2a97ffb-a2a2-46c0-bcdc-8531af80a12d
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/openshift-release-dev/ocp-v4.0-art-dev
+    - pull.q1w2.quay.rhcloud.com/openshift-release-dev/ocp-v4.0-art-dev
+    source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+
+# File: image_policies/image-policy-43.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:59Z"
+  generation: 1
+  name: image-policy-43
+  resourceVersion: "2160"
+  uid: baec1e28-b117-4184-8c2f-9d99328bad73
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/acm
+    - pull.q1w2.quay.rhcloud.com/osd-addons/acm
+    source: quay.io/osd-addons/acm
+
+# File: image_policies/image-policy-44.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:59Z"
+  generation: 1
+  name: image-policy-44
+  resourceVersion: "2161"
+  uid: 2052b8d7-3550-4ce6-aa2e-95e4dcee1815
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/cluster-logging-operator
+    - pull.q1w2.quay.rhcloud.com/osd-addons/cluster-logging-operator
+    source: quay.io/osd-addons/cluster-logging-operator
+
+# File: image_policies/image-policy-45.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:00Z"
+  generation: 1
+  name: image-policy-45
+  resourceVersion: "2164"
+  uid: 39588979-46fe-4d1e-8a9e-d47188998486
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/codeready-workspaces
+    - pull.q1w2.quay.rhcloud.com/osd-addons/codeready-workspaces
+    source: quay.io/osd-addons/codeready-workspaces
+
+# File: image_policies/image-policy-46.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:00Z"
+  generation: 1
+  name: image-policy-46
+  resourceVersion: "2179"
+  uid: 891f2ab3-f002-4b26-ae58-5f36e51e800f
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/codeready-workspaces-qe
+    - pull.q1w2.quay.rhcloud.com/osd-addons/codeready-workspaces-qe
+    source: quay.io/osd-addons/codeready-workspaces-qe
+
+# File: image_policies/image-policy-47.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:00Z"
+  generation: 1
+  name: image-policy-47
+  resourceVersion: "2198"
+  uid: 088277ce-9968-45b0-bba6-3a782c465679
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/dba-operator
+    - pull.q1w2.quay.rhcloud.com/osd-addons/dba-operator
+    source: quay.io/osd-addons/dba-operator
+
+# File: image_policies/image-policy-48.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:01Z"
+  generation: 1
+  name: image-policy-48
+  resourceVersion: "2204"
+  uid: 4529b6ce-6190-4c29-9564-c07642f1fede
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/kas-fleetshard-operator
+    - pull.q1w2.quay.rhcloud.com/osd-addons/kas-fleetshard-operator
+    source: quay.io/osd-addons/kas-fleetshard-operator
+
+# File: image_policies/image-policy-49.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:01Z"
+  generation: 1
+  name: image-policy-49
+  resourceVersion: "2205"
+  uid: 46c0578d-171d-4267-816d-0f4016254d33
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/managed-api-service
+    - pull.q1w2.quay.rhcloud.com/osd-addons/managed-api-service
+    source: quay.io/osd-addons/managed-api-service
+
+# File: image_policies/image-policy-4.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:43Z"
+  generation: 1
+  name: image-policy-04
+  resourceVersion: "1619"
+  uid: 9a33dde2-14a6-424a-9660-16f63a3ea091
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/pagerduty-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/pagerduty-operator
+    source: quay.io/app-sre/pagerduty-operator
+
+# File: image_policies/image-policy-50.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:02Z"
+  generation: 1
+  name: image-policy-50
+  resourceVersion: "2229"
+  uid: 14f58a93-a2f1-4f85-8e6c-22392cc05c65
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/managed-kafka
+    - pull.q1w2.quay.rhcloud.com/osd-addons/managed-kafka
+    source: quay.io/osd-addons/managed-kafka
+
+# File: image_policies/image-policy-51.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:02Z"
+  generation: 1
+  name: image-policy-51
+  resourceVersion: "2264"
+  uid: 15a25da7-0b35-49f2-a8f7-01faa54eeac8
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/ocs-converged
+    - pull.q1w2.quay.rhcloud.com/osd-addons/ocs-converged
+    source: quay.io/osd-addons/ocs-converged
+
+# File: image_policies/image-policy-52.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:02Z"
+  generation: 1
+  name: image-policy-52
+  resourceVersion: "2285"
+  uid: 695c9887-4f74-492b-9170-9f47461fce38
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/ocs-converged-dev
+    - pull.q1w2.quay.rhcloud.com/osd-addons/ocs-converged-dev
+    source: quay.io/osd-addons/ocs-converged-dev
+
+# File: image_policies/image-policy-53.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:03Z"
+  generation: 1
+  name: image-policy-53
+  resourceVersion: "2292"
+  uid: 2871a9f9-f993-4b72-a6bc-21d5a549f718
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/opendatahub-operator
+    - pull.q1w2.quay.rhcloud.com/osd-addons/opendatahub-operator
+    source: quay.io/osd-addons/opendatahub-operator
+
+# File: image_policies/image-policy-54.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:03Z"
+  generation: 1
+  name: image-policy-54
+  resourceVersion: "2294"
+  uid: 5e2fffe3-7811-40f1-a3ff-9f8c6a22bef5
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/prow
+    - pull.q1w2.quay.rhcloud.com/osd-addons/prow
+    source: quay.io/osd-addons/prow
+
+# File: image_policies/image-policy-55.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:04Z"
+  generation: 1
+  name: image-policy-55
+  resourceVersion: "2298"
+  uid: 00538bb0-6daa-44f2-b601-97f40a8ed4c7
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/rhmi
+    - pull.q1w2.quay.rhcloud.com/osd-addons/rhmi
+    source: quay.io/osd-addons/rhmi
+
+# File: image_policies/image-policy-56.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:04Z"
+  generation: 1
+  name: image-policy-56
+  resourceVersion: "2303"
+  uid: 8c2ff2d5-2ca8-4ef6-bcac-a14cc230ab18
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/rhmi-internal
+    - pull.q1w2.quay.rhcloud.com/osd-addons/rhmi-internal
+    source: quay.io/osd-addons/rhmi-internal
+
+# File: image_policies/image-policy-57.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:04Z"
+  generation: 1
+  name: image-policy-57
+  resourceVersion: "2314"
+  uid: 9cb55546-f642-4b71-957c-9fdf6ca54d2f
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/osd-addons/rhoam-internal
+    - pull.q1w2.quay.rhcloud.com/osd-addons/rhoam-internal
+    source: quay.io/osd-addons/rhoam-internal
+
+# File: image_policies/image-policy-58.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:56:05Z"
+  generation: 1
+  name: image-policy-58
+  resourceVersion: "2324"
+  uid: d9f5880b-b7a2-4a5f-9fd5-f14df32f96c5
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/token-refresher
+    - pull.q1w2.quay.rhcloud.com/app-sre/token-refresher
+    source: quay.io/app-sre/token-refresher
+
+# File: image_policies/image-policy-5.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:44Z"
+  generation: 1
+  name: image-policy-05
+  resourceVersion: "1626"
+  uid: 0625b609-27ec-418d-a227-65edaf68718b
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/pagerduty-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/pagerduty-operator-registry
+    source: quay.io/app-sre/pagerduty-operator-registry
+
+# File: image_policies/image-policy-6.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:44Z"
+  generation: 1
+  name: image-policy-06
+  resourceVersion: "1634"
+  uid: 37724bb4-154e-4c74-8aac-5790a7b4ef58
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/certman-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/certman-operator
+    source: quay.io/app-sre/certman-operator
+
+# File: image_policies/image-policy-7.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:44Z"
+  generation: 1
+  name: image-policy-07
+  resourceVersion: "1673"
+  uid: a975d173-666d-4cef-83c6-fb6078f54278
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/certman-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/certman-operator-registry
+    source: quay.io/app-sre/certman-operator-registry
+
+# File: image_policies/image-policy-8.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:45Z"
+  generation: 1
+  name: image-policy-08
+  resourceVersion: "1674"
+  uid: 400d4218-b5c7-4eeb-aef7-9200fc64ae2f
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/custom-domains-operator
+    - pull.q1w2.quay.rhcloud.com/app-sre/custom-domains-operator
+    source: quay.io/app-sre/custom-domains-operator
+
+# File: image_policies/image-policy-9.yaml
+---
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  creationTimestamp: "2023-04-27T11:55:45Z"
+  generation: 1
+  name: image-policy-09
+  resourceVersion: "1692"
+  uid: 142ee063-26a9-45bc-a6fe-0b2e849f2391
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - quay.io/app-sre/custom-domains-operator-registry
+    - pull.q1w2.quay.rhcloud.com/app-sre/custom-domains-operator-registry
+    source: quay.io/app-sre/custom-domains-operator-registry
+    
