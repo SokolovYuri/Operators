@@ -1,0 +1,339 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2023-05-28T19:39:14Z"
+  generation: 1
+  labels:
+    olm.deployment-spec-hash: 7664c994d8
+    olm.owner: metallb-operator.4.10.0-202305032028
+    olm.owner.kind: ClusterServiceVersion
+    olm.owner.namespace: test-space
+    operators.coreos.com/metallb-operator.test-space: ""
+  name: metallb-operator-controller-manager
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: metallb-operator.4.10.0-202305032028
+    uid: a95614d3-3440-40d0-ae3a-f51a2c93ca01
+  resourceVersion: "38736214"
+  uid: fde1f0df-a631-4be4-a918-a87cb9a0e4fb
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      control-plane: controller-manager
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        alm-examples: |-
+          [
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "AddressPool",
+              "metadata": {
+                "name": "addresspool-sample1",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "addresses": [
+                  "172.18.0.100-172.18.0.255"
+                ],
+                "protocol": "layer2"
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "AddressPool",
+              "metadata": {
+                "name": "addresspool-sample2",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "addresses": [
+                  "172.20.0.100/24"
+                ],
+                "autoAssign": false,
+                "protocol": "layer2"
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "AddressPool",
+              "metadata": {
+                "name": "addresspool-sample3",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "addresses": [
+                  "2002:2:2::1-2002:2:2::100"
+                ],
+                "protocol": "layer2"
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "AddressPool",
+              "metadata": {
+                "name": "addresspool-sample4",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "addresses": [
+                  "172.30.0.100-172.30.0.255"
+                ],
+                "bgpAdvertisements": [
+                  {
+                    "aggregationLength": 32,
+                    "communities": [
+                      "65535:65282"
+                    ],
+                    "localPref": 100
+                  },
+                  {
+                    "aggregationLength": 24,
+                    "aggregationLengthV6": 120,
+                    "communities": [
+                      "8000:800"
+                    ]
+                  }
+                ],
+                "protocol": "bgp"
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "BFDProfile",
+              "metadata": {
+                "name": "bfdprofiledefault",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "detectMultiplier": 37,
+                "echoMode": true,
+                "echoReceiveInterval": 38,
+                "echoTransmitInterval": 39,
+                "minimumTtl": 10,
+                "passiveMode": true,
+                "receiveInterval": 35,
+                "transmitInterval": 35
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "BFDProfile",
+              "metadata": {
+                "name": "bfdprofilefull",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "detectMultiplier": 37,
+                "echoMode": true,
+                "echoReceiveInterval": 38,
+                "echoTransmitInterval": 39,
+                "minimumTtl": 10,
+                "passiveMode": true,
+                "receiveInterval": 35,
+                "transmitInterval": 35
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "BGPPeer",
+              "metadata": {
+                "name": "peer-bfd",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "bfdProfile": "bfdprofilefull",
+                "holdTime": "10s",
+                "myASN": 64500,
+                "peerASN": 64501,
+                "peerAddress": "10.0.0.2",
+                "peerPort": 1,
+                "routerID": "10.10.10.10",
+                "sourceAddress": "1.1.1.1"
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "BGPPeer",
+              "metadata": {
+                "name": "peer-sample1",
+                "namespace": "openshift-metallb-system"
+              },
+              "spec": {
+                "holdTime": "10s",
+                "keepaliveTime": "3s",
+                "myASN": 64500,
+                "nodeSelectors": [
+                  {
+                    "matchExpressions": [
+                      {
+                        "key": "kubernetes.io/hostname",
+                        "operator": "In",
+                        "values": [
+                          "hostA",
+                          "hostB"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "password": "test",
+                "peerASN": 64501,
+                "peerAddress": "10.0.0.1",
+                "peerPort": 1,
+                "routerID": "10.10.10.10",
+                "sourceAddress": "1.1.1.1"
+              }
+            },
+            {
+              "apiVersion": "metallb.io/v1beta1",
+              "kind": "MetalLB",
+              "metadata": {
+                "name": "metallb",
+                "namespace": "openshift-metallb-system"
+              }
+            }
+          ]
+        capabilities: Basic Install
+        categories: Networking
+        certified: "false"
+        containerImage: registry.redhat.io/openshift4/metallb-rhel8-operator@sha256:a0b1cd87669fd6e3a88bb6627e7df48eaa3c9eaeb77d55559c1f608a35109513
+        createdAt: "2021-06-28 00:00:00"
+        description: An operator for deploying MetalLB on a kubernetes cluster.
+        olm.operatorGroup: test-space-lj47g
+        olm.operatorNamespace: test-space
+        olm.skipRange: '>=4.8.0 <4.10.0-202305032028'
+        olm.targetNamespaces: test-space
+        olmcahash: bacf25fca6a8b8badac0efdcc69206328649d8fa3084fefdc51fff87ae3b1fec
+        operatorframework.io/properties: '{"properties":[{"type":"olm.gvk","value":{"group":"metallb.io","kind":"AddressPool","version":"v1beta1"}},{"type":"olm.gvk","value":{"group":"metallb.io","kind":"BFDProfile","version":"v1beta1"}},{"type":"olm.gvk","value":{"group":"metallb.io","kind":"BGPPeer","version":"v1beta1"}},{"type":"olm.package","value":{"packageName":"metallb-operator","version":"4.10.0-202305032028"}},{"type":"olm.gvk","value":{"group":"metallb.io","kind":"MetalLB","version":"v1beta1"}},{"type":"olm.gvk","value":{"group":"metallb.io","kind":"AddressPool","version":"v1alpha1"}}]}'
+        operators.openshift.io/valid-subscription: '["OpenShift Kubernetes Engine",
+          "OpenShift Container Platform", "OpenShift Platform Plus"]'
+        operators.operatorframework.io/builder: operator-sdk-v1.8.0+git
+        operators.operatorframework.io/project_layout: go.kubebuilder.io/v2
+        repository: https://github.com/openshift/metallb-operator
+        support: Red Hat
+      creationTimestamp: null
+      labels:
+        control-plane: controller-manager
+    spec:
+      containers:
+      - args:
+        - --enable-leader-election
+        command:
+        - /manager
+        env:
+        - name: SPEAKER_IMAGE
+          value: registry.redhat.io/openshift4/metallb-rhel8@sha256:42f33c21efe8317fd5a05df9445348f832d83f13f1f7adefb3c55d845133597e
+        - name: CONTROLLER_IMAGE
+          value: registry.redhat.io/openshift4/metallb-rhel8@sha256:42f33c21efe8317fd5a05df9445348f832d83f13f1f7adefb3c55d845133597e
+        - name: ENABLE_OPERATOR_WEBHOOK
+          value: "true"
+        - name: METALLB_BGP_TYPE
+          value: frr
+        - name: FRR_IMAGE
+          value: registry.redhat.io/openshift4/frr-rhel8@sha256:d3245c313d659344daad20e359d999c1747eb5899386ed65767ecb9b65668a1e
+        - name: KUBE_RBAC_PROXY_IMAGE
+          value: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:37b3c9b2eed351d9d1a39c99045bbc7993ccb819f67f7b390deaa34930f45946
+        - name: DEPLOY_KUBE_RBAC_PROXIES
+          value: "true"
+        - name: DEPLOY_PODMONITORS
+          value: "false"
+        - name: METRICS_PORT
+          value: "29150"
+        - name: HTTPS_METRICS_PORT
+          value: "9120"
+        - name: FRR_METRICS_PORT
+          value: "29151"
+        - name: FRR_HTTPS_METRICS_PORT
+          value: "9121"
+        - name: MEMBER_LIST_BIND_PORT
+          value: "9122"
+        - name: WATCH_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.annotations['olm.targetNamespaces']
+        - name: OPERATOR_CONDITION_NAME
+          value: metallb-operator.4.10.0-202305032028
+        image: registry.redhat.io/openshift4/metallb-rhel8-operator@sha256:a0b1cd87669fd6e3a88bb6627e7df48eaa3c9eaeb77d55559c1f608a35109513
+        imagePullPolicy: IfNotPresent
+        name: manager
+        ports:
+        - containerPort: 9443
+          name: webhook-server
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 50m
+            memory: 20Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp/k8s-webhook-server/serving-certs
+          name: webhook-cert
+        - mountPath: /apiserver.local.config/certificates
+          name: apiservice-cert
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: webhook-server-cert
+      - name: apiservice-cert
+        secret:
+          defaultMode: 420
+          items:
+          - key: tls.crt
+            path: apiserver.crt
+          - key: tls.key
+            path: apiserver.key
+          secretName: metallb-operator-controller-manager-service-cert
+      - name: webhook-cert
+        secret:
+          defaultMode: 420
+          items:
+          - key: tls.crt
+            path: tls.crt
+          - key: tls.key
+            path: tls.key
+          secretName: metallb-operator-controller-manager-service-cert
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-05-28T19:39:28Z"
+    lastUpdateTime: "2023-05-28T19:39:28Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-05-28T19:39:14Z"
+    lastUpdateTime: "2023-05-28T19:39:28Z"
+    message: ReplicaSet "metallb-operator-controller-manager-9758577cf" has successfully
+      progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
