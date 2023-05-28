@@ -1,0 +1,266 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2023-05-28T21:25:11Z"
+  generation: 2
+  labels:
+    olm.deployment-spec-hash: 5cd646f47b
+    olm.owner: mongodb-atlas-kubernetes.v1.7.3
+    olm.owner.kind: ClusterServiceVersion
+    olm.owner.namespace: test-space
+    operators.coreos.com/mongodb-atlas-kubernetes.test-space: ""
+  name: mongodb-atlas-operator
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: mongodb-atlas-kubernetes.v1.7.3
+    uid: 2148936a-6912-48d6-969a-f75051c655a9
+  resourceVersion: "38811595"
+  uid: dcd4c4b2-d558-4aaf-a07d-19d385b88094
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: mongodb-atlas-kubernetes-operator
+      app.kubernetes.io/name: mongodb-atlas-kubernetes-operator
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        alm-examples: |-
+          [
+            {
+              "apiVersion": "atlas.mongodb.com/v1",
+              "kind": "AtlasBackupPolicy",
+              "metadata": {
+                "name": "atlasbackuppolicy-sample"
+              },
+              "spec": {
+                "items": [
+                  {
+                    "frequencyInterval": 3,
+                    "frequencyType": "daily",
+                    "retentionUnit": "weeks",
+                    "retentionValue": 2
+                  }
+                ]
+              }
+            },
+            {
+              "apiVersion": "atlas.mongodb.com/v1",
+              "kind": "AtlasBackupSchedule",
+              "metadata": {
+                "name": "atlasbackupschedule-sample"
+              },
+              "spec": {
+                "autoExportEnabled": false,
+                "copySettings": [
+                  {
+                    "cloudProvider": "AWS",
+                    "frequencies": [
+                      "WEEKLY"
+                    ],
+                    "regionName": "US_WEST_1",
+                    "replicationSpecId": "a1b2c3",
+                    "shouldCopyOplogs": false
+                  }
+                ],
+                "policy": {
+                  "name": "atlasbackuppolicy-sample"
+                },
+                "referenceHourOfDay": 10,
+                "referenceMinuteOfHour": 10,
+                "restoreWindowDays": 2,
+                "useOrgAndGroupNamesInExportPrefix": true
+              }
+            },
+            {
+              "apiVersion": "atlas.mongodb.com/v1",
+              "kind": "AtlasDatabaseUser",
+              "metadata": {
+                "name": "my-database-user"
+              },
+              "spec": {
+                "databaseName": "admin",
+                "passwordSecretRef": {
+                  "name": "my-database-user-password"
+                },
+                "projectRef": {
+                  "name": "my-project"
+                },
+                "roles": [
+                  {
+                    "databaseName": "admin",
+                    "roleName": "readWriteAnyDatabase"
+                  }
+                ],
+                "username": "david"
+              }
+            },
+            {
+              "apiVersion": "atlas.mongodb.com/v1",
+              "kind": "AtlasDeployment",
+              "metadata": {
+                "name": "my-atlas-deployment"
+              },
+              "spec": {
+                "deploymentSpec": {
+                  "name": "test-deployment",
+                  "providerSettings": {
+                    "instanceSizeName": "M10",
+                    "providerName": "AWS",
+                    "regionName": "US_EAST_1"
+                  }
+                },
+                "projectRef": {
+                  "name": "my-project"
+                }
+              }
+            },
+            {
+              "apiVersion": "atlas.mongodb.com/v1",
+              "kind": "AtlasProject",
+              "metadata": {
+                "name": "my-project"
+              },
+              "spec": {
+                "name": "Test Atlas Operator Project",
+                "projectIpAccessList": [
+                  {
+                    "comment": "IP address for Application Server A",
+                    "ipAddress": "192.0.2.15"
+                  }
+                ]
+              }
+            },
+            {
+              "apiVersion": "atlas.mongodb.com/v1",
+              "kind": "AtlasTeam",
+              "metadata": {
+                "name": "atlasteam-sample"
+              },
+              "spec": {
+                "name": "my-team",
+                "usernames": [
+                  "username@mongodb.com"
+                ]
+              }
+            }
+          ]
+        capabilities: Full Lifecycle
+        categories: Database
+        containerImage: quay.io/mongodb/mongodb-atlas-kubernetes-operator:1.7.3
+        description: The MongoDB Atlas Kubernetes Operator enables easy management
+          of Clusters in MongoDB Atlas
+        olm.operatorGroup: test-space-lj47g
+        olm.operatorNamespace: test-space
+        olm.targetNamespaces: test-space
+        operatorframework.io/properties: '{"properties":[{"type":"olm.gvk","value":{"group":"atlas.mongodb.com","kind":"AtlasDatabaseUser","version":"v1"}},{"type":"olm.gvk","value":{"group":"atlas.mongodb.com","kind":"AtlasDeployment","version":"v1"}},{"type":"olm.gvk","value":{"group":"atlas.mongodb.com","kind":"AtlasProject","version":"v1"}},{"type":"olm.gvk","value":{"group":"atlas.mongodb.com","kind":"AtlasTeam","version":"v1"}},{"type":"olm.package","value":{"packageName":"mongodb-atlas-kubernetes","version":"1.7.3"}},{"type":"olm.gvk","value":{"group":"atlas.mongodb.com","kind":"AtlasBackupPolicy","version":"v1"}},{"type":"olm.gvk","value":{"group":"atlas.mongodb.com","kind":"AtlasBackupSchedule","version":"v1"}}]}'
+        operators.operatorframework.io/builder: operator-sdk-v1.15.0+git
+        operators.operatorframework.io/project_layout: go.kubebuilder.io/v2
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: controller
+        app.kubernetes.io/instance: mongodb-atlas-kubernetes-operator
+        app.kubernetes.io/name: mongodb-atlas-kubernetes-operator
+    spec:
+      containers:
+      - args:
+        - --atlas-domain=https://cloud.mongodb.com/
+        - --leader-elect
+        - --health-probe-bind-address=:8081
+        - --metrics-bind-address=127.0.0.1:8080
+        - --log-level=info
+        - --log-encoder=json
+        command:
+        - /manager
+        env:
+        - name: OPERATOR_POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: OPERATOR_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: WATCH_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.annotations['olm.targetNamespaces']
+        - name: OPERATOR_CONDITION_NAME
+          value: mongodb-atlas-kubernetes.v1.7.3
+        image: quay.io/mongodb/mongodb-atlas-kubernetes-operator:1.7.3
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: manager
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /readyz
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: mongodb-atlas-operator
+      serviceAccountName: mongodb-atlas-operator
+      terminationGracePeriodSeconds: 10
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-05-28T21:25:31Z"
+    lastUpdateTime: "2023-05-28T21:25:31Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-05-28T21:25:11Z"
+    lastUpdateTime: "2023-05-28T21:25:31Z"
+    message: ReplicaSet "mongodb-atlas-operator-f765b745" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
