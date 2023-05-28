@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-05-28T21:25:07Z"
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: mongodb-atlas-kubernetes-operator
+    app.kubernetes.io/name: mongodb-atlas-kubernetes-operator
+    operators.coreos.com/mongodb-atlas-kubernetes.test-space: ""
+  name: mongodb-atlas-controller-manager-metrics-service
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: mongodb-atlas-kubernetes.v1.7.3
+    uid: 2148936a-6912-48d6-969a-f75051c655a9
+  resourceVersion: "38811467"
+  uid: 37677177-9e20-4d3d-bad6-f9f8610145ef
+spec:
+  clusterIP: 172.30.239.249
+  clusterIPs:
+  - 172.30.239.249
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: mongodb-atlas-kubernetes-operator
+    app.kubernetes.io/name: mongodb-atlas-kubernetes-operator
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
