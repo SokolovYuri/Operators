@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-05-28T19:39:14Z"
+  labels:
+    operators.coreos.com/metallb-operator.test-space: ""
+  name: metallb-operator-controller-manager-service
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: metallb-operator.4.10.0-202305032028
+    uid: a95614d3-3440-40d0-ae3a-f51a2c93ca01
+  resourceVersion: "38735754"
+  uid: 18398b20-e43f-4a94-8080-16a47c9d53c5
+spec:
+  clusterIP: 172.30.55.53
+  clusterIPs:
+  - 172.30.55.53
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: "443"
+    port: 443
+    protocol: TCP
+    targetPort: 9443
+  selector:
+    control-plane: controller-manager
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
