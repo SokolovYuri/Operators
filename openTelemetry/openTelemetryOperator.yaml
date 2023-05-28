@@ -1,0 +1,891 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    operators.operatorframework.io/builder: operator-sdk-v1.27.0
+    operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
+    certified: 'false'
+    olm.targetNamespaces: test-space
+    operatorframework.io/properties: >-
+      {"properties":[{"type":"olm.package","value":{"packageName":"opentelemetry-operator","version":"0.77.0"}},{"type":"olm.gvk","value":{"group":"opentelemetry.io","kind":"Instrumentation","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"opentelemetry.io","kind":"OpenTelemetryCollector","version":"v1alpha1"}}]}
+    repository: github.com/open-telemetry/opentelemetry-operator
+    support: OpenTelemetry Community
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "opentelemetry.io/v1alpha1",
+          "kind": "Instrumentation",
+          "metadata": {
+            "name": "instrumentation"
+          },
+          "spec": {
+            "exporter": {
+              "endpoint": "http://otel-collector-headless:4317"
+            }
+          }
+        },
+        {
+          "apiVersion": "opentelemetry.io/v1alpha1",
+          "kind": "OpenTelemetryCollector",
+          "metadata": {
+            "name": "otel"
+          },
+          "spec": {
+            "config": "receivers:\n  otlp:\n    protocols: \n      grpc:\n      http:\n\nexporters:\n  logging:\n\nservice:\n  pipelines:\n    traces:\n      receivers: [otlp]\n      exporters: [logging]\n"
+          }
+        }
+      ]
+    capabilities: Basic Install
+    olm.operatorNamespace: test-space
+    containerImage: ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator
+    createdAt: '2023-05-15T08:04:44Z'
+    categories: Logging & Tracing
+    description: 'Provides the OpenTelemetry components, including the Collector'
+    olm.operatorGroup: test-space-lj47g
+  resourceVersion: '38787676'
+  name: opentelemetry-operator.v0.77.0
+  uid: b8cedac8-22b5-475f-9547-4057c9c215f4
+  creationTimestamp: '2023-05-28T20:51:05Z'
+  generation: 1
+  managedFields:
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:createdAt': {}
+            'f:alm-examples': {}
+            'f:description': {}
+            'f:capabilities': {}
+            .: {}
+            'f:containerImage': {}
+            'f:categories': {}
+            'f:operators.operatorframework.io/project_layout': {}
+            'f:certified': {}
+            'f:operatorframework.io/properties': {}
+            'f:operators.operatorframework.io/builder': {}
+            'f:support': {}
+            'f:repository': {}
+        'f:spec':
+          'f:version': {}
+          'f:maturity': {}
+          'f:provider':
+            .: {}
+            'f:name': {}
+          'f:links': {}
+          'f:install':
+            .: {}
+            'f:spec':
+              .: {}
+              'f:clusterPermissions': {}
+              'f:deployments': {}
+              'f:permissions': {}
+            'f:strategy': {}
+          'f:maintainers': {}
+          'f:description': {}
+          'f:installModes': {}
+          'f:icon': {}
+          'f:customresourcedefinitions':
+            .: {}
+            'f:owned': {}
+          .: {}
+          'f:cleanup':
+            .: {}
+            'f:enabled': {}
+          'f:apiservicedefinitions': {}
+          'f:replaces': {}
+          'f:displayName': {}
+          'f:webhookdefinitions': {}
+          'f:keywords': {}
+      manager: catalog
+      operation: Update
+      time: '2023-05-28T20:51:05Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:lastUpdateTime': {}
+          'f:requirementStatus': {}
+          'f:phase': {}
+          'f:certsRotateAt': {}
+          'f:certsLastUpdated': {}
+          'f:lastTransitionTime': {}
+          'f:conditions': {}
+          .: {}
+          'f:cleanup': {}
+          'f:message': {}
+          'f:reason': {}
+      manager: olm
+      operation: Update
+      subresource: status
+      time: '2023-05-28T20:51:06Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:olm.operatorGroup': {}
+            'f:olm.operatorNamespace': {}
+            'f:olm.targetNamespaces': {}
+          'f:labels':
+            .: {}
+            'f:operators.coreos.com/opentelemetry-operator.test-space': {}
+      manager: olm
+      operation: Update
+      time: '2023-05-28T20:51:07Z'
+  namespace: test-space
+  labels:
+    operators.coreos.com/opentelemetry-operator.test-space: ''
+spec:
+  customresourcedefinitions:
+    owned:
+      - description: Instrumentation is the spec for OpenTelemetry instrumentation.
+        displayName: OpenTelemetry Instrumentation
+        kind: Instrumentation
+        name: instrumentations.opentelemetry.io
+        resources:
+          - kind: Pod
+            name: ''
+            version: v1
+        version: v1alpha1
+      - description: >-
+          OpenTelemetryCollector is the Schema for the opentelemetrycollectors
+          API.
+        displayName: OpenTelemetry Collector
+        kind: OpenTelemetryCollector
+        name: opentelemetrycollectors.opentelemetry.io
+        resources:
+          - kind: ConfigMaps
+            name: ''
+            version: v1
+          - kind: DaemonSets
+            name: ''
+            version: apps/v1
+          - kind: Deployment
+            name: ''
+            version: apps/v1
+          - kind: Pod
+            name: ''
+            version: v1
+          - kind: Service
+            name: ''
+            version: v1
+          - kind: StatefulSets
+            name: ''
+            version: apps/v1
+        version: v1alpha1
+  cleanup:
+    enabled: false
+  apiservicedefinitions: {}
+  webhookdefinitions:
+    - generateName: minstrumentation.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - opentelemetry.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - instrumentations
+      type: MutatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /mutate-opentelemetry-io-v1alpha1-instrumentation
+      failurePolicy: Fail
+    - generateName: mopentelemetrycollector.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - opentelemetry.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - opentelemetrycollectors
+      type: MutatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /mutate-opentelemetry-io-v1alpha1-opentelemetrycollector
+      failurePolicy: Fail
+    - generateName: mpod.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - ''
+          apiVersions:
+            - v1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - pods
+      type: MutatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /mutate-v1-pod
+      failurePolicy: Ignore
+    - generateName: vinstrumentationcreateupdate.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - opentelemetry.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - instrumentations
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-opentelemetry-io-v1alpha1-instrumentation
+      failurePolicy: Fail
+    - generateName: vinstrumentationdelete.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - opentelemetry.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - DELETE
+          resources:
+            - instrumentations
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-opentelemetry-io-v1alpha1-instrumentation
+      failurePolicy: Ignore
+    - generateName: vopentelemetrycollectorcreateupdate.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - opentelemetry.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - opentelemetrycollectors
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-opentelemetry-io-v1alpha1-opentelemetrycollector
+      failurePolicy: Fail
+    - generateName: vopentelemetrycollectordelete.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: opentelemetry-operator-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - opentelemetry.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - DELETE
+          resources:
+            - opentelemetrycollectors
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-opentelemetry-io-v1alpha1-opentelemetrycollector
+      failurePolicy: Ignore
+  keywords:
+    - opentelemetry
+    - tracing
+    - logging
+    - metrics
+    - monitoring
+    - troubleshooting
+  displayName: Community OpenTelemetry Operator
+  provider:
+    name: OpenTelemetry Community
+  maturity: alpha
+  installModes:
+    - supported: true
+      type: OwnNamespace
+    - supported: true
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
+  version: 0.77.0
+  icon:
+    - base64data: >-
+        PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHJvbGU9ImltZyIgdmlld0JveD0iLTEyLjcwIC0xMi43MCAxMDI0LjQwIDEwMjQuNDAiPjxzdHlsZT5zdmcge2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTAwMCAxMDAwfTwvc3R5bGU+PHBhdGggZmlsbD0iI2Y1YTgwMCIgZD0iTTUyOC43IDU0NS45Yy00MiA0Mi00MiAxMTAuMSAwIDE1Mi4xczExMC4xIDQyIDE1Mi4xIDAgNDItMTEwLjEgMC0xNTIuMS0xMTAuMS00Mi0xNTIuMSAwem0xMTMuNyAxMTMuOGMtMjAuOCAyMC44LTU0LjUgMjAuOC03NS4zIDAtMjAuOC0yMC44LTIwLjgtNTQuNSAwLTc1LjMgMjAuOC0yMC44IDU0LjUtMjAuOCA3NS4zIDAgMjAuOCAyMC43IDIwLjggNTQuNSAwIDc1LjN6bTM2LjYtNjQzbC02NS45IDY1LjljLTEyLjkgMTIuOS0xMi45IDM0LjEgMCA0N2wyNTcuMyAyNTcuM2MxMi45IDEyLjkgMzQuMSAxMi45IDQ3IDBsNjUuOS02NS45YzEyLjktMTIuOSAxMi45LTM0LjEgMC00N0w3MjUuOSAxNi43Yy0xMi45LTEyLjktMzQtMTIuOS00Ni45IDB6TTIxNy4zIDg1OC44YzExLjctMTEuNyAxMS43LTMwLjggMC00Mi41bC0zMy41LTMzLjVjLTExLjctMTEuNy0zMC44LTExLjctNDIuNSAwTDcyLjEgODUybC0uMS4xLTE5LTE5Yy0xMC41LTEwLjUtMjcuNi0xMC41LTM4IDAtMTAuNSAxMC41LTEwLjUgMjcuNiAwIDM4bDExNCAxMTRjMTAuNSAxMC41IDI3LjYgMTAuNSAzOCAwczEwLjUtMjcuNiAwLTM4bC0xOS0xOSAuMS0uMSA2OS4yLTY5LjJ6Ii8+PHBhdGggZmlsbD0iIzQyNWNjNyIgZD0iTTU2NS45IDIwNS45TDQxOS41IDM1Mi4zYy0xMyAxMy0xMyAzNC40IDAgNDcuNGw5MC40IDkwLjRjNjMuOS00NiAxNTMuNS00MC4zIDIxMSAxNy4ybDczLjItNzMuMmMxMy0xMyAxMy0zNC40IDAtNDcuNEw2MTMuMyAyMDUuOWMtMTMtMTMuMS0zNC40LTEzLjEtNDcuNCAwem0tOTQgMzIyLjNsLTUzLjQtNTMuNGMtMTIuNS0xMi41LTMzLTEyLjUtNDUuNSAwTDE4NC43IDY2My4yYy0xMi41IDEyLjUtMTIuNSAzMyAwIDQ1LjVsMTA2LjcgMTA2LjdjMTIuNSAxMi41IDMzIDEyLjUgNDUuNSAwTDQ1OCA2OTQuMWMtMjUuNi01Mi45LTIxLTExNi44IDEzLjktMTY1Ljl6Ii8+PC9zdmc+
+      mediatype: image/svg+xml
+  links:
+    - name: OpenTelemetry Operator
+      url: 'https://github.com/open-telemetry/opentelemetry-operator'
+  install:
+    spec:
+      clusterPermissions:
+        - rules:
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - events
+              verbs:
+                - create
+                - patch
+            - apiGroups:
+                - ''
+              resources:
+                - namespaces
+              verbs:
+                - list
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - serviceaccounts
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - services
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - daemonsets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - deployments
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - replicasets
+              verbs:
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - statefulsets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - autoscaling
+              resources:
+                - horizontalpodautoscalers
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - coordination.k8s.io
+              resources:
+                - leases
+              verbs:
+                - create
+                - get
+                - list
+                - update
+            - apiGroups:
+                - networking.k8s.io
+              resources:
+                - ingresses
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - opentelemetry.io
+              resources:
+                - instrumentations
+              verbs:
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - opentelemetry.io
+              resources:
+                - opentelemetrycollectors
+              verbs:
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - opentelemetry.io
+              resources:
+                - opentelemetrycollectors/finalizers
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - opentelemetry.io
+              resources:
+                - opentelemetrycollectors/status
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - route.openshift.io
+              resources:
+                - routes
+                - routes/custom-host
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - authentication.k8s.io
+              resources:
+                - tokenreviews
+              verbs:
+                - create
+            - apiGroups:
+                - authorization.k8s.io
+              resources:
+                - subjectaccessreviews
+              verbs:
+                - create
+          serviceAccountName: opentelemetry-operator-controller-manager
+      deployments:
+        - label:
+            app.kubernetes.io/name: opentelemetry-operator
+            control-plane: controller-manager
+          name: opentelemetry-operator-controller-manager
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app.kubernetes.io/name: opentelemetry-operator
+                control-plane: controller-manager
+            strategy: {}
+            template:
+              metadata:
+                creationTimestamp: null
+                labels:
+                  app.kubernetes.io/name: opentelemetry-operator
+                  control-plane: controller-manager
+              spec:
+                containers:
+                  - args:
+                      - '--metrics-addr=127.0.0.1:8080'
+                      - '--enable-leader-election'
+                      - '--zap-log-level=info'
+                      - '--zap-time-encoding=rfc3339nano'
+                      - '--feature-gates=+operator.autoinstrumentation.go'
+                    image: >-
+                      ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator:0.77.0
+                    livenessProbe:
+                      httpGet:
+                        path: /healthz
+                        port: 8081
+                      initialDelaySeconds: 15
+                      periodSeconds: 20
+                    name: manager
+                    ports:
+                      - containerPort: 9443
+                        name: webhook-server
+                        protocol: TCP
+                    readinessProbe:
+                      httpGet:
+                        path: /readyz
+                        port: 8081
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                    resources:
+                      requests:
+                        cpu: 100m
+                        memory: 64Mi
+                    volumeMounts:
+                      - mountPath: /tmp/k8s-webhook-server/serving-certs
+                        name: cert
+                        readOnly: true
+                  - args:
+                      - '--secure-listen-address=0.0.0.0:8443'
+                      - '--upstream=http://127.0.0.1:8080/'
+                      - '--logtostderr=true'
+                      - '--v=0'
+                    image: 'gcr.io/kubebuilder/kube-rbac-proxy:v0.13.0'
+                    name: kube-rbac-proxy
+                    ports:
+                      - containerPort: 8443
+                        name: https
+                        protocol: TCP
+                    resources:
+                      limits:
+                        cpu: 500m
+                        memory: 128Mi
+                      requests:
+                        cpu: 5m
+                        memory: 64Mi
+                serviceAccountName: opentelemetry-operator-controller-manager
+                terminationGracePeriodSeconds: 10
+                volumes:
+                  - name: cert
+                    secret:
+                      defaultMode: 420
+                      secretName: opentelemetry-operator-controller-manager-service-cert
+      permissions:
+        - rules:
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps/status
+              verbs:
+                - get
+                - update
+                - patch
+            - apiGroups:
+                - ''
+              resources:
+                - events
+              verbs:
+                - create
+                - patch
+          serviceAccountName: opentelemetry-operator-controller-manager
+    strategy: deployment
+  maintainers:
+    - email: jpkroehling@redhat.com
+      name: Juraci Paixão Kröhling
+  description: >-
+    OpenTelemetry is a collection of tools, APIs, and SDKs. You use it to
+    instrument, generate, collect, and export telemetry data (metrics, logs, and
+    traces) for analysis in order to understand your software's performance and
+    behavior.
+
+
+    ### Operator features
+
+
+    * **Sidecar injection** - annotate your pods and let the operator inject a
+    sidecar.
+
+    * **Managed upgrades** - updating the operator will automatically update
+    your OpenTelemetry collectors.
+
+    * **Deployment modes** - your collector can be deployed as sidecar, daemon
+    set, or regular deployment.
+
+    * **Service port management** - the operator detects which ports need to be
+    exposed based on the provided configuration.
+  replaces: opentelemetry-operator.v0.76.1
+status:
+  reason: InstallWaiting
+  cleanup: {}
+  message: >-
+    installing: waiting for deployment opentelemetry-operator-controller-manager
+    to become ready: deployment "opentelemetry-operator-controller-manager" not
+    available: Deployment does not have minimum availability.
+  lastUpdateTime: '2023-05-28T20:51:07Z'
+  requirementStatus:
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: instrumentations.opentelemetry.io
+      status: Present
+      uuid: 8da24404-7980-4019-b9ce-07900e263de6
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: opentelemetrycollectors.opentelemetry.io
+      status: Present
+      uuid: 49f6ec90-55a4-4ae2-97d8-3f9e30374d28
+      version: v1
+    - dependents:
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            namespaced
+            rule:{"verbs":["get","list","watch","create","update","patch","delete"],"apiGroups":[""],"resources":["configmaps"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            namespaced
+            rule:{"verbs":["get","update","patch"],"apiGroups":[""],"resources":["configmaps/status"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            namespaced
+            rule:{"verbs":["create","patch"],"apiGroups":[""],"resources":["events"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["configmaps"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","patch"],"apiGroups":[""],"resources":["events"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["list","watch"],"apiGroups":[""],"resources":["namespaces"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["serviceaccounts"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["services"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["apps"],"resources":["daemonsets"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["apps"],"resources":["deployments"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch"],"apiGroups":["apps"],"resources":["replicasets"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["apps"],"resources":["statefulsets"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["autoscaling"],"resources":["horizontalpodautoscalers"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","get","list","update"],"apiGroups":["coordination.k8s.io"],"resources":["leases"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["networking.k8s.io"],"resources":["ingresses"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","patch","update","watch"],"apiGroups":["opentelemetry.io"],"resources":["instrumentations"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","patch","update","watch"],"apiGroups":["opentelemetry.io"],"resources":["opentelemetrycollectors"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","patch","update"],"apiGroups":["opentelemetry.io"],"resources":["opentelemetrycollectors/finalizers"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","patch","update"],"apiGroups":["opentelemetry.io"],"resources":["opentelemetrycollectors/status"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["route.openshift.io"],"resources":["routes","routes/custom-host"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create"],"apiGroups":["authentication.k8s.io"],"resources":["tokenreviews"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create"],"apiGroups":["authorization.k8s.io"],"resources":["subjectaccessreviews"]}
+          status: Satisfied
+          version: v1
+      group: ''
+      kind: ServiceAccount
+      message: ''
+      name: opentelemetry-operator-controller-manager
+      status: Present
+      version: v1
+  certsLastUpdated: '2023-05-28T20:51:06Z'
+  lastTransitionTime: '2023-05-28T20:51:06Z'
+  conditions:
+    - lastTransitionTime: '2023-05-28T20:51:05Z'
+      lastUpdateTime: '2023-05-28T20:51:05Z'
+      message: requirements not yet checked
+      phase: Pending
+      reason: RequirementsUnknown
+    - lastTransitionTime: '2023-05-28T20:51:05Z'
+      lastUpdateTime: '2023-05-28T20:51:05Z'
+      message: one or more requirements couldn't be found
+      phase: Pending
+      reason: RequirementsNotMet
+    - lastTransitionTime: '2023-05-28T20:51:06Z'
+      lastUpdateTime: '2023-05-28T20:51:06Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2023-05-28T20:51:06Z'
+      lastUpdateTime: '2023-05-28T20:51:06Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2023-05-28T20:51:06Z'
+      lastUpdateTime: '2023-05-28T20:51:07Z'
+      message: >-
+        installing: waiting for deployment
+        opentelemetry-operator-controller-manager to become ready: deployment
+        "opentelemetry-operator-controller-manager" not available: Deployment
+        does not have minimum availability.
+      phase: Installing
+      reason: InstallWaiting
+  phase: Installing
+  certsRotateAt: '2025-05-26T20:51:06Z'
