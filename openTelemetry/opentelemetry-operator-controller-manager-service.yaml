@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-05-28T20:56:15Z"
+  labels:
+    operators.coreos.com/opentelemetry-operator.test-space: ""
+  name: opentelemetry-operator-controller-manager-service
+  namespace: test-space
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: opentelemetry-operator.v0.77.0
+    uid: b8cedac8-22b5-475f-9547-4057c9c215f4
+  resourceVersion: "38791053"
+  uid: 180eef69-f364-47d6-afeb-c3121e338621
+spec:
+  clusterIP: 172.30.11.114
+  clusterIPs:
+  - 172.30.11.114
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: "443"
+    port: 443
+    protocol: TCP
+    targetPort: 9443
+  selector:
+    app.kubernetes.io/name: opentelemetry-operator
+    control-plane: controller-manager
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
